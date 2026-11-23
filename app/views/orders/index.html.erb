@@ -1,0 +1,17 @@
+<h1>Orders</h1>
+<p class="intro">Track demo optical orders from intake to invoicing.</p>
+<% if @orders.empty? %>
+  <div class="card"><p>No orders yet.</p><%= link_to "Create your first order", new_order_path %></div>
+<% else %>
+  <ul class="order-list">
+    <% @orders.each do |order| %>
+      <li class="card order-row">
+        <div>
+          <%= link_to "Order ##{order.id}", order, class: "order-link" %>
+          <p><%= order.product_name %> · <%= order.customer %></p>
+        </div>
+        <span class="status"><%= order.status.humanize %></span>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

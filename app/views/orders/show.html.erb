@@ -1,0 +1,30 @@
+<% content_for :title, "Order ##{@order.id} | Lens Order Desk" %>
+<p><%= link_to "All orders", orders_path %></p>
+<h1>Order #<%= @order.id %></h1>
+<p><span class="status"><%= @order.status.humanize %></span></p>
+<div class="card">
+  <h2>Order details</h2>
+  <dl>
+    <dt>Customer</dt><dd><%= @order.customer %></dd>
+    <dt>Email</dt><dd><%= @order.email %></dd>
+    <dt>Channel</dt><dd><%= Order::CHANNELS.key(@order.channel) %></dd>
+    <dt>Product</dt><dd><%= @order.product_name %> (<%= @order.product_code %>)</dd>
+    <dt>Quantity</dt><dd><%= @order.quantity %></dd>
+    <dt>Demo total</dt><dd><%= number_to_currency(@order.total_cents / 100.0, unit: "€") %></dd>
+  </dl>
+</div>
+<section class="card">
+  <h2>Fulfilment</h2>
+  <% if (next_status = Order::NEXT_STATUS[@order.status]) %>
+    <%= button_to "Mark as #{next_status}", advance_order_path(@order), method: :patch,
+          params: { expected_status: @order.status }, class: "button" %>
+  <% else %>
+    <p>Workflow complete.</p>
+  <% end %>
+  <% if OrdersController::DOCUMENT_STAGES.fetch("delivery-note").include?(@order.status) %>
+    <p><%= link_to "View delivery note", document_order_path(@order, kind: "delivery-note") %></p>
+  <% end %>
+  <% if @order.status == "invoiced" %>
+    <p><%= link_to "View sample invoice", document_order_path(@order, kind: "invoice") %></p>
+  <% end %>
+</section>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Lens Order Desk" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="/desk.css">
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="wrap" aria-label="Main navigation">
+        <%= link_to "Lens Order Desk", root_path, class: "brand" %>
+        <%= link_to "New order", new_order_path, class: "button" %>
+      </nav>
+    </header>
+    <main class="wrap" id="main">
+      <% if notice %><p class="notice" role="status"><%= notice %></p><% end %>
+      <% if alert %><p class="error" role="alert"><%= alert %></p><% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

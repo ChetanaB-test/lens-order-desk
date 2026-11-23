@@ -1,0 +1,33 @@
+name: Rails QA
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      CI: "true"
+      SE_AVOID_STATS: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Prepare test database
+        run: RAILS_ENV=test bin/rails db:prepare
+      - name: Model and request tests
+        run: bin/rails test
+      - name: Browser smoke test
+        run: bin/rails test:system
+      - name: Upload browser failure screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-failures
+          path: tmp/screenshots
+          if-no-files-found: ignore

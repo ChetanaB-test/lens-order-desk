@@ -1,0 +1,40 @@
+:root {
+  font: 16px/1.55 system-ui, sans-serif;
+  color: #172a33;
+  background: #f3f6f7;
+}
+body { margin: 0; }
+a { color: #075e51; text-underline-offset: .2em; }
+:focus-visible { outline: 3px solid #ac5a00; outline-offset: 3px; }
+.wrap { width: min(46rem, calc(100% - 2rem)); margin: auto; }
+.site-header { background: white; border-bottom: 1px solid #d5dee0; }
+nav { display: flex; justify-content: space-between; align-items: center; gap: .75rem; padding: 1rem 0; }
+.brand { color: #172a33; font-size: 1.15rem; font-weight: 750; text-decoration: none; }
+main { padding: 2rem 0 3rem; overflow-wrap: anywhere; }
+h1, h2 { line-height: 1.15; margin: 0 0 .75rem; }
+h1 { font-size: clamp(2rem, 6vw, 3rem); letter-spacing: -.035em; }
+h2 { font-size: 1.25rem; }
+.intro { color: #435761; margin: 0 0 1.5rem; }
+.card { border: 1px solid #d5dee0; padding: 1.25rem; border-radius: .75rem; background: white; margin-bottom: 1rem; }
+.order-form { display: grid; gap: .55rem; }
+label, dt { font-weight: 650; }
+input, select, button { font: inherit; }
+input:not([type=submit]), select { box-sizing: border-box; width: 100%; padding: .55rem; border: 1px solid #697e87; border-radius: .35rem; background: white; color: inherit; margin-bottom: .65rem; }
+.button { display: inline-block; justify-self: start; background: #075e51; color: white; border: 0; border-radius: .4rem; padding: .55rem .85rem; text-decoration: none; font-weight: 650; cursor: pointer; }
+.button:hover { background: #07473e; }
+.status { display: inline-block; background: #e0efe9; color: #124a3a; padding: .2rem .65rem; border-radius: 2rem; }
+.order-list { list-style: none; margin: 0; padding: 0; }
+.order-row { display: flex; justify-content: space-between; align-items: flex-start; gap: .75rem; flex-wrap: wrap; }
+.order-row p { margin: .25rem 0 0; }
+.order-link { font-weight: 700; }
+dl { display: grid; grid-template-columns: minmax(5rem, 1fr) 2fr; gap: .5rem; }
+dd { margin: 0; }
+.notice, .error { border-radius: .4rem; padding: .75rem; }
+.notice { background: #e0efe9; }
+.error { background: #fbe7e3; color: #78271c; }
+.skip { position: absolute; left: -100vw; }
+.skip:focus { left: 1rem; top: .5rem; padding: .5rem; background: white; }
+@media print {
+  .site-header, .skip, .print-hidden { display: none; }
+  :root { background: white; }
+}

@@ -1,0 +1,9 @@
+/.bundle/
+/.env*
+/log/
+/tmp/
+/storage/
+/vendor/bundle/
+/config/master.key
+*.sqlite3*
+.DS_Store

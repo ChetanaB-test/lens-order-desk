@@ -1,0 +1,26 @@
+<% content_for :title, "New order | Lens Order Desk" %>
+<h1>New order</h1>
+<p class="intro">Use fictional names and email addresses for this demo.</p>
+<%= form_with model: @order, class: "card order-form" do |form| %>
+  <% if @order.errors.any? %>
+    <div class="error" role="alert">
+      <strong>Check the following fields</strong>
+      <ul>
+        <% @order.errors.full_messages.each do |message| %><li><%= message %></li><% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form.label :customer, "Customer name" %>
+  <%= form.text_field :customer, required: true, maxlength: 100 %>
+  <%= form.label :email, "Email" %>
+  <%= form.email_field :email, required: true, maxlength: 254 %>
+  <%= form.label :channel, "Channel" %>
+  <%= form.select :channel, Order::CHANNELS, {}, required: true %>
+  <%= form.label :product_code, "Product" %>
+  <%= form.select :product_code, Order::CATALOG.map { |code, item|
+    ["#{item.fetch(:name)} · #{number_to_currency(item.fetch(:cents) / 100.0, unit: '€')}", code]
+  }, { include_blank: "Choose a product" }, required: true %>
+  <%= form.label :quantity, "Quantity" %>
+  <%= form.number_field :quantity, required: true, min: 1, max: 100, step: 1 %>
+  <%= form.submit "Create order", class: "button" %>
+<% end %>

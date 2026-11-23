@@ -1,0 +1,17 @@
+<% title = @kind == "invoice" ? "Sample invoice" : "Delivery note" %>
+<% content_for :title, "#{title} | Lens Order Desk" %>
+<p class="print-hidden"><%= link_to "Back to order", @order %></p>
+<h1><%= title %></h1>
+<p class="intro">Demo document for order #<%= @order.id %></p>
+<div class="card">
+  <dl>
+    <dt>Customer</dt><dd><%= @order.customer %></dd>
+    <dt>Product</dt><dd><%= @order.product_name %> (<%= @order.product_code %>)</dd>
+    <dt>Quantity</dt><dd><%= @order.quantity %></dd>
+    <% if @kind == "invoice" %>
+      <dt>Unit price</dt><dd><%= number_to_currency(@order.unit_price_cents / 100.0, unit: "€") %></dd>
+      <dt>Demo total</dt><dd><%= number_to_currency(@order.total_cents / 100.0, unit: "€") %></dd>
+    <% end %>
+  </dl>
+</div>
+<p class="print-hidden">Use your browser’s print menu to print or save this page.</p>
