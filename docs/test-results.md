@@ -10,7 +10,6 @@
 | Optional seed | Pass | Two consecutive seed commands left one sample order. |
 | Extracted archive and local server | Pass | Fresh extraction passed both suites. The development server served the seeded order list and stylesheet. |
 | Manual exploratory charter | Pending | Keyboard-only flow at browser zoom, actual print preview, multi-tab walkthrough and duplicate intake are listed in the [test plan](test-plan.md). The request suite verifies stale stage updates independently. |
-| GitHub Actions | Pending | Workflow is included. The GitHub-hosted run starts after the repository is pushed. |
 
 ## Environment incident
 
