@@ -20,22 +20,6 @@ The workstation Chromium package exited before WebDriver could open a session be
 
 The automated P0 checks passed for the local demo. The [defect issue template](../.github/ISSUE_TEMPLATE/defect.md) is available for manual findings.
 
-## Windows test run — 23 November 2026
-
-I ran both test suites locally on Windows using Ruby 3.4.13.
-The browser tests used Chrome for Testing 156.
-
-| Test suite | Command | Result |
-| --- | --- | --- |
-| Model and HTTP request tests | `bundle exec ruby bin/rails test` | 10 runs, 76 assertions, 0 failures, 0 errors, 0 skips |
-| Browser tests | `bundle exec ruby bin/rails test:system` | 2 runs, 19 assertions, 0 failures, 0 errors, 0 skips |
-
-The browser suite exercised the retail order workflow from creation through
-invoicing. It also checked the order form at a narrow window size and the
-printed layout of the delivery note.
-
-See the [test plan](test-plan.md) for the scenarios and expected results.
-
 ## Windows browser test run
 
 - Environment: Windows, Ruby 3.4.13, Chrome for Testing 156
