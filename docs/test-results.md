@@ -17,7 +17,7 @@ The workstation Chromium package exited before WebDriver could open a session be
 
 ## Release assessment
 
-The automated P0 checks passed for the local demo. The [defect issue template](../.github/ISSUE_TEMPLATE/defect.md) is available for manual findings.
+I ran the model, HTTP request, and browser tests on Windows. Both suites passed with zero failures or errors. The manual checks I ran also passed.
 
 ## Windows browser test run
 
