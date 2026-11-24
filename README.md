@@ -10,11 +10,13 @@ Requires Ruby 3.4, Bundler, and SQLite.
 
 ```sh
 bundle install
-bin/rails db:migrate
-bin/rails server -b 127.0.0.1
+ruby bin/rails db:migrate
+ruby bin/rails server -b 127.0.0.1
 ```
 
-Open [localhost:3000](http://127.0.0.1:3000). Run `bin/rails db:seed` for the optional fictional trade order.
+When the terminal shows `Listening on`, open [http://127.0.0.1:3000](http://127.0.0.1:3000) in your browser. Keep the terminal open while using the app.
+
+To load the optional fictional trade order, run `ruby bin/rails db:seed` from the project folder in a separate terminal.
 
 ## Try the workflow
 
