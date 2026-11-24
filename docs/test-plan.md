@@ -13,10 +13,10 @@ The release target is a locally runnable demo that preserves financial inputs, e
 | QA-05 | P0 | Delivery notes are unavailable before packing and contain no pricing. Invoices are available after invoicing and match the order total. | HTTP, browser |
 | QA-06 | P1 | Blank names, malformed email addresses, invalid channels and unknown products fail validation. Surrounding whitespace in names and emails is trimmed. | Model |
 | QA-07 | P1 | Missing orders and unknown documents return 404. Missing order payload returns 400. | HTTP |
-| QA-08 | P1 | At mobile width, all fields, messages and workflow controls fit and are keyboard-accessible. | Browser fit and labels, manual keyboard and zoom |
+| QA-08 | P1 | At mobile width, the form fits the viewport and all fields have accessible labels. Keyboard navigation and 200% zoom are checked manually. | Browser fit and labels, manual keyboard and zoom |
 | QA-09 | P1 | Browser print preview shows the document heading and data without navigation controls. | Browser print CSS, manual print preview |
 | QA-10 | P2 | Submitted names with accents and punctuation display consistently across form, detail and documents. | Browser delivery-note check, manual cross-view review |
-| QA-11 | P2 | Two valid creation submissions create two records. A future requirement to deduplicate intake would need a separate acceptance criterion. | Manual charter |
+| QA-11 | P2 | | QA-11 | P2 | Two valid order submissions with identical input create two separate orders with different order numbers. | Manual charter |
 
 ## Manual charter
 
@@ -30,4 +30,4 @@ Use an empty development database or identify your new record by order number. U
 
 ## Release gate
 
-All P0 checks pass, the automated suite is green, and any unexecuted manual checks are called out in the execution record. Capture screenshots for UI failures and the response code and saved order state for workflow failures.
+All P0 checks pass, the automated test suites pass, and any manual checks not executed are clearly identified in the execution record. Capture screenshots for UI failures and record response codes and saved order states for workflow failures.
