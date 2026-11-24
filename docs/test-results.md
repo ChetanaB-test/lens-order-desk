@@ -19,10 +19,10 @@ The workstation Chromium package exited before WebDriver could open a session be
 
 I ran the model, HTTP request, and browser tests on Windows. Both suites passed with zero failures or errors. The manual checks I ran also passed.
 
-## Windows browser test run
+## Windows model and request test run
 
 - Environment: Windows, Ruby 3.4.13, Chrome for Testing 156
-- Command: `bundle exec ruby bin/rails test:system`
+- Command: `bundle exec ruby bin/rails test
 - Result: [Finished in 1.921866s, 5.2033 runs/s, 39.5449 assertions/s.
 10 runs, 76 assertions, 0 failures, 0 errors, 0 skips]
 
