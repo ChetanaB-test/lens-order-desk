@@ -1,6 +1,6 @@
 # Test execution record
 
-**23 November 2026** · Ruby 3.4.8, Rails 8.1.4.1, SQLite, Chrome Headless Shell 156 on Linux.
+**23 November 2026**
 
 | Check | Result | Evidence |
 | --- | --- | --- |
